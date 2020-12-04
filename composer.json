@@ -1,0 +1,15 @@
+{
+    "name": "huangdijia/elasticsearch-query",
+    "type": "library",
+    "license": "MIT",
+    "authors": [{
+        "name": "hdj",
+        "email": "huangdijia@gmail.com"
+    }],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Huangdijia\\ElasticsearchQuery\\": "src/"
+        }
+    }
+}
