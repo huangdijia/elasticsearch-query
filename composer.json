@@ -1,9 +1,10 @@
 {
     "name": "huangdijia/elasticsearch-query",
     "type": "library",
+    "homepage": "https://github.com/huangdijia/elasticsearch-query",
     "license": "MIT",
     "authors": [{
-        "name": "hdj",
+        "name": "huangdijia",
         "email": "huangdijia@gmail.com"
     }],
     "require": {},

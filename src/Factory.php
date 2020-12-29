@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 /**
- * This file is part of search-service.
+ * This file is part of elasticsearch-query.
  *
- * @link     https://code.addcn.com/8591/services/search
- * @document https://code.addcn.com/8591/services/search/blob/master/README.md
+ * @link     https://github.com/huangdijia/elasticsearch-query
+ * @document https://github.com/huangdijia/elasticsearch-query/blob/main/README.md
  * @contact  hdj@addcn.com
  */
 namespace Huangdijia\ElasticsearchQuery;

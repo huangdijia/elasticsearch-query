@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 /**
- * This file is part of search-service.
+ * This file is part of elasticsearch-query.
  *
- * @link     https://code.addcn.com/8591/services/search
- * @document https://code.addcn.com/8591/services/search/blob/master/README.md
+ * @link     https://github.com/huangdijia/elasticsearch-query
+ * @document https://github.com/huangdijia/elasticsearch-query/blob/main/README.md
  * @contact  hdj@addcn.com
  */
 namespace Huangdijia\ElasticsearchQuery;
@@ -291,11 +291,16 @@ class Builder
     /**
      * 高亮字段.
      * @param string $column
+     * @param string $preTag
+     * @param string $postTag
      * @return $this
      */
-    public function highlight($column)
+    public function highlight($column, $preTag = '<em>', $postTag = '</em>')
     {
-        $this->highlightFields[] = $column;
+        $this->highlightFields[$column] = [
+            'pre_tag' => (array) $preTag,
+            'post_tag' => (array) $postTag,
+        ];
 
         return $this;
     }
@@ -721,17 +726,7 @@ class Builder
         }
 
         if ($this->highlightFields) {
-            $highlight = [
-                'pre_tags' => ['<em>'],
-                'post_tags' => ['</em>'],
-                'fields' => [],
-            ];
-
-            foreach ($this->highlightFields as $field) {
-                $highlight['fields'][$field] = new \stdClass();
-            }
-
-            $body['highlight'] = $highlight;
+            $body['highlight'] = ['fields' => $this->highlightFields];
         }
 
         if (count($this->scriptFields) > 0) {
@@ -896,6 +891,14 @@ class Builder
     }
 
     /**
+     * @return array
+     */
+    public function toArray()
+    {
+        return $this->compileSearch();
+    }
+
+    /**
      * 添加一个数组条件的查询.
      *
      * @param array $column
@@ -958,14 +961,5 @@ class Builder
                 return $this->whereMatchPhrase($column, $value, 'must_not');
             break;
         }
-    }
-
-    /**
-     * 
-     * @return array 
-     */
-    public function toArray()
-    {
-        return $this->compileSearch();
     }
 }
