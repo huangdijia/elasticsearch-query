@@ -299,8 +299,8 @@ class Builder
     public function highlight($column, $preTag = '<em>', $postTag = '</em>')
     {
         $this->highlightFields[$column] = [
-            'pre_tag' => (array) $preTag,
-            'post_tag' => (array) $postTag,
+            'pre_tags' => (array) $preTag,
+            'post_tags' => (array) $postTag,
         ];
 
         return $this;
