@@ -192,6 +192,7 @@ class Builder
                     'source' => "doc['{$column}'].value",
                     'lang' => 'painless',
                 ],
+                'ignore_failure' => false,
             ];
         }
 

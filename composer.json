@@ -1,5 +1,6 @@
 {
     "name": "huangdijia/elasticsearch-query",
+    "description": "A component for elasticsearch",
     "type": "library",
     "homepage": "https://github.com/huangdijia/elasticsearch-query",
     "license": "MIT",
