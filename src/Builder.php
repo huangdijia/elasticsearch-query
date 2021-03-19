@@ -77,7 +77,7 @@ class Builder
     public $aggs = [];
 
     /**
-     * coolapse.
+     * collapse.
      * @var array
      */
     public $collapse;
@@ -608,7 +608,7 @@ class Builder
     /**
      * or where 查询(whereShould 别名).
      *
-     * @param array|Colsure|string $column
+     * @param array|Closure|string $column
      * @param mixed $operator
      * @param mixed $value
      *
