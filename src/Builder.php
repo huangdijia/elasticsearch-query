@@ -447,6 +447,21 @@ class Builder
     }
 
     /**
+     * Alias of whereMultiMatch.
+     * @param array $columns
+     * @param mixed $value
+     * @param array $options
+     * @param string $type
+     * @throws InvalidArgumentException
+     * @return $this
+     * @deprecated deprecated since version 0.2.0
+     */
+    public function whereMutliMatch1($columns = [], $value, $options = [], $type = 'filter')
+    {
+        return $this->whereMultiMatch(...func_get_args());
+    }
+
+    /**
      * match_phrase 查询.
      * @param array $columns
      * @param mixed $value
@@ -455,7 +470,7 @@ class Builder
      * @throws InvalidArgumentException
      * @return $this
      */
-    public function whereMutliMatch($columns = [], $value, $options = [], $type = 'filter')
+    public function whereMultiMatch($columns = [], $value, $options = [], $type = 'filter')
     {
         $columns = (array) $columns;
         $options = (array) $options;
