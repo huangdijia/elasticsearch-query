@@ -8,10 +8,20 @@
         "name": "huangdijia",
         "email": "huangdijia@gmail.com"
     }],
-    "require": {},
+    "require": {
+        "elasticsearch/elasticsearch": "^7.12"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.14",
+        "phpstan/phpstan": "^0.12"
+    },
     "autoload": {
         "psr-4": {
             "Huangdijia\\ElasticsearchQuery\\": "src/"
         }
+    },
+    "scripts": {
+        "cs-fix": "php-cs-fixer fix $1",
+        "analyse": "phpstan analyse --memory-limit 300M -l 0 -c phpstan.neon ./src"
     }
 }
