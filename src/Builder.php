@@ -845,7 +845,11 @@ class Builder
         }
 
         if ($script = $this->compileScript()) {
-            $params['script'] = $script;
+            if (! isset($params['body'])) {
+                $params['body'] = [];
+            }
+
+            $params['body']['script'] = $script;
         }
 
         return $params;
