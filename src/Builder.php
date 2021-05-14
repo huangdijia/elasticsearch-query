@@ -712,10 +712,14 @@ class Builder
 
     /**
      * 脚本.
+     *
+     * @return $this
      */
     public function script(array $payload)
     {
         $this->script = $payload;
+
+        return $this;
     }
 
     /**
