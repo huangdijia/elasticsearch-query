@@ -95,6 +95,11 @@ class Builder
     public $scriptFields = [];
 
     /**
+     * @var array
+     */
+    public $script;
+
+    /**
      * 所有的区间查询配置.
      *
      * @var array
@@ -706,6 +711,14 @@ class Builder
     }
 
     /**
+     * 脚本.
+     */
+    public function script(array $payload)
+    {
+        $this->script = $payload;
+    }
+
+    /**
      * 返回查询的 body 参数.
      *
      * @return array
@@ -778,6 +791,16 @@ class Builder
     }
 
     /**
+     * 转换脚本.
+     *
+     * @return array
+     */
+    public function compileScript()
+    {
+        return $this->script;
+    }
+
+    /**
      * 返回搜索的参数.
      *
      * @return array
@@ -815,6 +838,10 @@ class Builder
 
         if ($body = $this->compileBody()) {
             $params['body'] = $body;
+        }
+
+        if ($script = $this->compileScript()) {
+            $params['script'] = $script;
         }
 
         return $params;
