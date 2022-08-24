@@ -6,7 +6,7 @@ declare(strict_types=1);
  *
  * @link     https://github.com/huangdijia/elasticsearch-query
  * @document https://github.com/huangdijia/elasticsearch-query/blob/main/README.md
- * @contact  hdj@addcn.com
+ * @contact  huangdijia@gmail.com
  */
 namespace Huangdijia\ElasticsearchQuery;
 
@@ -995,7 +995,7 @@ class Builder
             case 'not like':
             case 'notlike':
                 return $this->whereMatchPhrase($column, $value, 'must_not');
-            break;
+                break;
         }
     }
 }
